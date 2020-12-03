@@ -1,6 +1,11 @@
 defmodule ChirpWeb.PostLive.PostComponent do
   use ChirpWeb, :live_component
 
+  def handle_event("like", _, socket) do
+    Chirp.Timeline.increment_likes(socket.assigns.post)
+    {:noreply, socket}
+  end
+
   def render(assigns) do
     ~L"""
     <div id="post-<%= @post.id %>" class="post">
