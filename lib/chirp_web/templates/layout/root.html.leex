@@ -8,7 +8,7 @@
     <%= live_title_tag assigns[:page_title] || "Chirp", suffix: " · Phoenix Framework" %>
     <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-    <script src="https://kit.fontawesome.com/bc52ee33b6.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/<%= System.get_env("FONT_AWESOME_KEY") || "need_account" %>.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
